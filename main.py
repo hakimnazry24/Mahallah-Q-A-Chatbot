@@ -9,7 +9,7 @@ import random
 import json
 import pickle
 
-with open('intents.json') as file:
+with open('intents_copy.json') as file:
     data = json.load(file)
 
 try: 
@@ -103,12 +103,13 @@ def chat():
         results = model.predict([bag_of_words(inp, words)])
         result_index = numpy.argmax(results)
         tag = labels[result_index]
-        print(tag)
+        #print(tag)
 
         for tg in data["intents"]:
             if tg["tag"] == tag:
                 responses = tg["responses"]
         
         print(random.choice(responses))
+        print("\n")
         
 chat()

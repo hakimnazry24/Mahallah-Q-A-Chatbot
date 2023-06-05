@@ -1,0 +1,153 @@
+{"intents": [
+        {"tag": "zubair_phoneno",
+         "patterns": ["Do you know Mahallah Zubair phone number?", "May I know Zubair phone number?", "Mahallah Zubair phone no?"],
+         "responses": ["Mahallah Zubair office phone number is 03-6421 5968/5695/5967"],
+         "context_set": ""
+        },
+        {"tag": "zubair_whatsapp",
+         "patterns": ["May I know Mahallah Zubair whatsapp number?", "Can I contact Zubair using Whatsapp?", "Mahallah Zubair whatsapp number?"],
+         "responses": ["Its 011-58719525."],
+         "context_set": ""
+        },
+        {"tag": "zubair_website",
+         "patterns": ["May I know Mahallah Zubair website?", "Does Mahallah Zubair have a website?", "Mahallah Zubair website?"],
+         "responses": ["More information regarding Mahallah Zubair can be found at mahallah.iium.edu.my/zubair/page-1/"],
+         "context_set": ""
+        },
+        {"tag": "zubair_address",
+         "patterns": ["May I know Mahallah Zubair address?", "What address can I use to send parcel to Zubair?", "Mahallah Zubair address?"],
+         "responses": ["Any letters or parcels can be send to Mahallah Zubair Al-Awwam, International Islamic University Malaysia, 53100 Jalan Gombak, Kuala Lumpur"],
+         "context_set": ""
+        },
+        {"tag": "zubair_email",
+         "patterns": ["May I know Mahallah Zubair email address?", "Where can I forward my enquiries regarding Mahallah Zubair?", "Mahallah Zubair email address?"],
+         "responses": ["Any questions or enqueries can be forwarded to mahallahzubairalawwam@gmail.com"],
+         "context_set": ""
+        },
+        {"tag": "ali_phoneno",
+         "patterns": ["Do you know Mahallah Ali phone number?", "May I know Ali phone number?", "Mahallah Ali phone no?"],
+         "responses": ["Mahallah Ali office phone number is 03-6421 4071/4072/4073"],
+         "context_set": ""
+        },
+        {"tag": "ali_whatsapp",
+         "patterns": ["May I know Mahallah Ali whatsapp number?", "Can I contact Ali using Whatsapp?", "Mahallah Ali whatsapp number?"],
+         "responses": ["Its 011-5871 9525."],
+         "context_set": ""
+        },
+        {"tag": "ali_website",
+         "patterns": ["May I know Mahallah Ali website?", "Does Mahallah Ali have a website?", "Mahallah Ali website?"],
+         "responses": ["More information regarding Mahallah Ali can be found at mahallah.iium.edu.my/ali/reach-us/"],
+         "context_set": ""
+        },
+        {"tag": "ali_address",
+         "patterns": ["May I know Mahallah Ali address?", "What address can I use to send parcel to Ali?", "Mahallah Ali address?"],
+         "responses": ["Any letters or parcels can be send to Mahallah Ali Ibn Abi Talib, International Islamic University Malaysian, Jalan Gombak, 53100 Gombak, Selangor."],
+         "context_set": ""
+        },
+        {"tag": "ali_email",
+         "patterns": ["May I know Mahallah Ali email address?", "Where can I forward my enquiries regarding Mahallah Ali?", "Mahallah Ali email address?"],
+         "responses": ["Any questions or enqueries can be forwarded to mahallahaliibntalib@gmail.com"],
+         "context_set": ""
+        },
+        {"tag": "faruq_phoneno",
+         "patterns": ["Do you know Mahallah Faruq phone number?", "May I know Faruq phone number?", "Mahallah Faruq phone no?"],
+         "responses": ["Mahallah Faruq office phone number is 03-6421 4121"],
+         "context_set": ""
+        },
+        {"tag": "faruq_whatsapp",
+         "patterns": ["May I know Mahallah Faruq whatsapp number?", "Can I contact Faruq using Whatsapp?", "Mahallah Faruq whatsapp number?"],
+         "responses": ["I am sorry. It seems that Mahallah Faruq do not have Whatsapp number. Try contacting them using office number."],
+         "context_set": ""
+        },
+        {"tag": "faruq_website",
+         "patterns": ["May I know Mahallah Faruq website?", "Does Mahallah Faruq have a website?", "Mahallah Faruq website?"],
+         "responses": ["More information regarding Mahallah Faruq can be found at www.facebook.com/MahallahFaruq"],
+         "context_set": ""
+        },
+        {"tag": "faruq_address",
+         "patterns": ["May I know Mahallah Faruq address?", "What address can I use to send parcel to Faruq?", "Mahallah Faruq address?"],
+         "responses": ["Any letters or parcels can be send to Mahallah Al-Faruq, International Islamic University Malaysia 53100 Kuala Lumpur, Malaysia"],
+         "context_set": ""
+        },
+        {"tag": "faruq_email",
+         "patterns": ["May I know Mahallah Faruq email address?", "Where can I forward my enquiries regarding Mahallah Faruq?", "Mahallah Faruq email address?"],
+         "responses": ["Any questions or enqueries can be forwarded to mahallahfaruq@gmail.com"],
+         "context_set": ""
+        },
+        {"tag": "bilal_phoneno",
+         "patterns": ["Do you know Mahallah Bilal phone number?", "May I know Bilal phone number?", "Mahallah Bilal phone no?"],
+         "responses": ["Mahallah Bilal office phone number is 03- 6421 4066/4067"],
+         "context_set": ""
+        },
+        {"tag": "bilal_whatsapp",
+         "patterns": ["May I know Mahallah Bilal whatsapp number?", "Can I contact Bilal using Whatsapp?", "Mahallah Bilal whatsapp number?"],
+         "responses": ["Its 011 5871 9692."],
+         "context_set": ""
+        },
+        {"tag": "bilal_website",
+         "patterns": ["May I know Mahallah Bilal website?", "Does Mahallah Bilal have a website?", "Mahallah Bilal website?"],
+         "responses": ["More information regarding Mahallah Bilal can be found at mahallah.iium.edu.my/bilal/"],
+         "context_set": ""
+        },
+        {"tag": "bilal_address",
+         "patterns": ["May I know Mahallah Bilal address?", "What address can I use to send parcel to Bilal?", "Mahallah Bilal address?"],
+         "responses": ["Any letters or parcels can be send to Mahallah Bilal Ibn Rabah, International Islamic University Malaysia, Jalan Gombak, 53100 Kuala Lumpur, Malaysia"],
+         "context_set": ""
+        },
+        {"tag": "bilal_email",
+         "patterns": ["May I know Mahallah Bilal email address?", "Where can I forward my enquiries regarding Mahallah Bilal?", "Mahallah Bilal email address?"],
+         "responses": ["Any questions or enqueries can be forwarded to mahallahbilal@gmail.com"],
+         "context_set": ""
+        },
+        {"tag": "siddiq_phoneno",
+         "patterns": ["Do you know Mahallah Siddiq phone number?", "May I know Siddiq phone number?", "Mahallah Siddiq phone no?"],
+         "responses": ["Mahallah Siddiq office phone number is 03-64214062, 03-64214063, 03-64214061"],
+         "context_set": ""
+        },
+        {"tag": "siddiq_whatsapp",
+         "patterns": ["May I know Mahallah Siddiq whatsapp number?", "Can I contact Siddiq using Whatsapp?", "Mahallah Siddiq whatsapp number?"],
+         "responses": ["I am sorry. It seems that Mahallah Siddiq do not have Whatsapp number. Try contacting them using office number."],
+         "context_set": ""
+        },
+        {"tag": "siddiq_website",
+         "patterns": ["May I know Mahallah Siddiq website?", "Does Mahallah Siddiq have a website?", "Mahallah Siddiq website?"],
+         "responses": ["More information regarding Mahallah Siddiq can be found at mahallah.iium.edu.my/siddiq/"],
+         "context_set": ""
+        },
+        {"tag": "siddiq_address",
+         "patterns": ["May I know Mahallah Siddiq address?", "What address can I use to send parcel to Siddiq?", "Mahallah Siddiq address?"],
+         "responses": ["Any letters or parcels can be send to Mahallah Siddiq, International Islamic University Malaysia, 53100 Jalan Gombak, Kuala Lumpur"],
+         "context_set": ""
+        },
+        {"tag": "siddiq_email",
+         "patterns": ["May I know Mahallah Siddiq email address?", "Where can I forward my enquiries regarding Mahallah Siddiq?", "Mahallah Siddiq email address?"],
+         "responses": ["Any questions or enqueries can be forwarded to noraliff@iium.edu.my, madihah@iium.edu.my, mshahrizat@iium.edu.my"],
+         "context_set": ""
+        },
+        {"tag": "uthman_phoneno",
+         "patterns": ["Do you know Mahallah Uthman phone number?", "May I know Uthman phone number?", "Mahallah Uthman phone no?"],
+         "responses": ["Mahallah Uthman office phone number is 03-61964082 "],
+         "context_set": ""
+        },
+        {"tag": "uthman_whatsapp",
+         "patterns": ["May I know Mahallah Uthman whatsapp number?", "Can I contact Uthman using Whatsapp?", "Mahallah Uthman whatsapp number?"],
+         "responses": ["I am sorry. It seems that Mahallah Uthman do not have Whatsapp number. Try contacting them using office number."],
+         "context_set": ""
+        },
+        {"tag": "uthman_website",
+         "patterns": ["May I know Mahallah Uthman website?", "Does Mahallah Uthman have a website?", "Mahallah Uthman website?"],
+         "responses": ["More information regarding Mahallah Uthman can be found at mahallah.iium.edu.my/uthman/"],
+         "context_set": ""
+        },
+        {"tag": "uthman_address",
+         "patterns": ["May I know Mahallah Uthman address?", "What address can I use to send parcel to Uthman?", "Mahallah Uthman address?"],
+         "responses": ["Any letters or parcels can be send to Mahallah Uthman Ibn Affan, International Islamic University Malaysia, 53100 Jalan Gombak, Kuala Lumpur"],
+         "context_set": ""
+        },
+        {"tag": "uthman_email",
+         "patterns": ["May I know Mahallah Uthman email address?", "Where can I forward my enquiries regarding Mahallah Uthman?", "Mahallah Uthman email address?"],
+         "responses": ["Any questions or enqueries can be forwarded to mahallahuthman@gmail.com"],
+         "context_set": ""
+        }
+   ]
+}
