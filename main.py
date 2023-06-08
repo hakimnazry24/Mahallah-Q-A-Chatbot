@@ -37,7 +37,7 @@ words = sorted(list(set(words)))
 
 labels = sorted(labels)
 
-# bag of words
+# bag of words / one-hot encode string data
 training = []
 output = []
 
@@ -91,7 +91,7 @@ def bag_of_words(s, words):
     
     return numpy.array(bag)
 
-# speech to text 
+# transform speech to text
 def speech_recog():
     speech_to_text.recorder()
 
@@ -107,7 +107,9 @@ def speech_recog():
 
     return inp  
 
+# main function
 def chat():
+    # get input from text or speech
     while True:
         print("Press '1' to interact using terminal. Press '2' to interact using speech. Type 'quit' to quit chatbot")
         user_input = input("> ")
@@ -127,6 +129,7 @@ def chat():
             print("Enter correct input!!")
             continue
 
+        # use input to generate output 
         results = model.predict([bag_of_words(inp, words)])
         result_index = numpy.argmax(results)
         tag = labels[result_index]
