@@ -108,12 +108,6 @@ def speech_recog():
         print("File .wav not found")
 
     return inp  
-    # steps
-    # 1. kite cakap kat mic
-    # 2. google api translate jadi speech.txt
-    # 3. pass speech.txt as input
-    # 4. model cari best response
-    # 5. model pass output
 
 def chat():
     user_input = input("Press 1 to interact using terminal. Press 2 to interact using speech")
@@ -155,33 +149,5 @@ def chat():
                 user_inp = input("Press 1 to speak.")
                 if user_inp == "1":
                     break
-                
-    #print("Training model ....")
-    #model()
-    #print("Finish training model ...")
 
-    # interaction using terminal / text
-    
-
-    # INTERACTION USING SPEECH
-    
-    while True:
-        inp = speech_recog()
-
-        while True:
-            results = model.predict([bag_of_words(inp, words)])
-            result_index = numpy.argmax(results)
-            tag = labels[result_index]
-
-            for tg in data["intents"]:
-                if tg["tag"] == tag:
-                    responses = tg["responses"]
-
-            print(random.choice(responses))
-            print("\n")
-            
-            user_inp = input("Press 1 to speak.")
-            if user_inp == "1":
-                break
-    
 chat()
