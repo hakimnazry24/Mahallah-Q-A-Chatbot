@@ -1,4 +1,9 @@
 {"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hello", "Hi", "Holla"],
+         "responses": ["Hello, Hi", "Hey!"],
+         "context_set": ""
+        },
         {"tag": "zubair_phoneno",
          "patterns": ["Do you know Mahallah Zubair phone number?", "May I know Zubair phone number?", "Mahallah Zubair phone no?"],
          "responses": ["Mahallah Zubair office phone number is 03-6421 5968/5695/5967"],
