@@ -9,13 +9,11 @@ import tensorflow
 import random
 import json
 import pickle
-import speech_recognition as sr
 import speech_to_text
-# test
+import speech_recognition as sr
 
 with open('intents_copy.json') as file:
     data = json.load(file)
-
 
 words = []
 labels = []
@@ -66,9 +64,6 @@ for x, doc in enumerate(docs_x):
 training = numpy.array(training)
 output = numpy.array(output)
 
-with open("data.pickle", "wb") as f:
-    pickle.dump((words, labels, training, output), f)
-
 # model
 net = tflearn.input_data(shape=[None, len(training[0])]) # create input layer
 net = tflearn.fully_connected(net, 8) # create 8 hidden layer
@@ -78,9 +73,11 @@ net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
 
+# training model
 model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
 model.save("model.tflearn")
 
+# encode input with one hot encoding
 def bag_of_words(s, words):
     bag = [0 for _ in range(len(words))]
 
@@ -94,8 +91,9 @@ def bag_of_words(s, words):
     
     return numpy.array(bag)
 
+# speech to text 
 def speech_recog():
-    speech_to_text.speech_to_text()
+    speech_to_text.recorder()
 
     try:
         r = sr.Recognizer()
@@ -111,13 +109,13 @@ def speech_recog():
 
 def chat():
     while True:
-        user_input = input("Press 1 to interact using terminal. Press 2 to interact using speech")
+        print("Press '1' to interact using terminal. Press '2' to interact using speech. Type 'quit' to quit chatbot")
+        user_input = input("> ")
 
         if user_input == "1":
             print("Start talking with the bot! (Type quit to stop)")
             inp = input("You: ")
                 
-
         elif user_input == "2":
             print("Start talking with the bot.")
             inp = speech_recog()
