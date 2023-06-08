@@ -142,10 +142,6 @@ def chat():
     # INTERACTION USING SPEECH
     
     while True:
-        user_inp = input("Talk to the bot... (Press 1 to stop)")
-        if user_inp == "1":
-            break
-
         inp = speech_recog()
 
         while True:
@@ -159,5 +155,9 @@ def chat():
 
             print(random.choice(responses))
             print("\n")
+            
+            user_inp = input("Press 1 to speak.")
+            if user_inp == "1":
+                break
     
 chat()
