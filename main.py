@@ -116,28 +116,52 @@ def speech_recog():
     # 5. model pass output
 
 def chat():
+    user_input = input("Press 1 to interact using terminal. Press 2 to interact using speech")
+    if user_input == "1":
+        print("Start talking with the bot! (Type quit to stop)")
+        while True:
+            inp = input("You: ")
+            if inp.lower() == 'quit':
+                break
+
+            results = model.predict([bag_of_words(inp, words)])
+            result_index = numpy.argmax(results)
+            tag = labels[result_index]
+
+            for tg in data["intents"]:
+                if tg["tag"] == tag:
+                    responses = tg["responses"]
+        
+            print(random.choice(responses))
+            print("\n")
+
+        if user_input == "2":
+            print("Start talking with the bot.")
+
+            while True:
+                inp = speech_recog()
+                
+                results = model.predict([bag_of_words(inp, words)])
+                result_index = numpy.argmax(results)
+                tag = labels[result_index]
+
+                for tg in data["intents"]:
+                    if tg["tag"] == tag:
+                        responses = tg["responses"]
+
+                print(random.choice(responses))
+                print("\n")
+                
+                user_inp = input("Press 1 to speak.")
+                if user_inp == "1":
+                    break
+                
     #print("Training model ....")
     #model()
     #print("Finish training model ...")
 
     # interaction using terminal / text
-    # print("Start talking with the bot! (Type quit to stop)")
-    # while True:
-    #     inp = input("You: ")
-    #     if inp.lower() == 'quit':
-    #         break
-
-    #     results = model.predict([bag_of_words(inp, words)])
-    #     result_index = numpy.argmax(results)
-    #     tag = labels[result_index]
-    #     #print(tag)
-
-    #     for tg in data["intents"]:
-    #         if tg["tag"] == tag:
-    #             responses = tg["responses"]
-        
-    #     print(random.choice(responses))
-    #     print("\n")
+    
 
     # INTERACTION USING SPEECH
     
