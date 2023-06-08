@@ -1,74 +1,75 @@
 import nltk
+nltk.download('punkt')
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
-# add comment
+
 import numpy
 import tflearn
 import tensorflow
 import random
 import json
 import pickle
+import speech_recognition as sr
+import speech_to_text
+# test
 
 with open('intents_copy.json') as file:
     data = json.load(file)
 
-try: 
-    with open("data.pickle", "rb") as f:
-        words, labels, training, output = pickle.load(f)
-except:
-    words = []
-    labels = []
-    docs_x = [] # tokenized words
-    docs_y = [] # associated tags for each words
 
-    # reading json
-    for intent in data['intents']:
-        for pattern in intent['patterns']:
-            wrds = nltk.word_tokenize(pattern)
-            words.extend(wrds)
-            docs_x.append(wrds)
-            docs_y.append(intent["tag"])
+words = []
+labels = []
+docs_x = [] # tokenized words
+docs_y = [] # associated tags for each words
 
-            if intent['tag'] not in labels:
-                labels.append(intent['tag'])
+# reading json
+for intent in data['intents']:
+    for pattern in intent['patterns']:
+        wrds = nltk.word_tokenize(pattern)
+        words.extend(wrds)
+        docs_x.append(wrds)
+        docs_y.append(intent["tag"])
 
-    # stemming and sorting
-    words = [stemmer.stem(w.lower()) for w in words if w not in "?"]
-    words = sorted(list(set(words)))
+        if intent['tag'] not in labels:
+            labels.append(intent['tag'])
 
-    labels = sorted(labels)
+# stemming and sorting
+words = [stemmer.stem(w.lower()) for w in words if w not in "?"]
+words = sorted(list(set(words)))
 
-    # bag of words
-    training = []
-    output = []
+labels = sorted(labels)
 
-    out_empty = [0 for _ in range(len(labels))]
+# bag of words
+training = []
+output = []
 
-    for x, doc in enumerate(docs_x):
-        bag = []
+out_empty = [0 for _ in range(len(labels))]
 
-        wrds = [stemmer.stem(w) for w in doc]
+for x, doc in enumerate(docs_x):
+    bag = []
 
-        for w in words:
-            if w in wrds:
-                bag.append(1)
-            else:
-                bag.append(0)
+    wrds = [stemmer.stem(w) for w in doc]
 
-        output_row = out_empty[:]
-        output_row[labels.index(docs_y[x])] = 1
+    for w in words:
+        if w in wrds:
+            bag.append(1)
+        else:
+            bag.append(0)
 
-        training.append(bag)
-        output.append(output_row)
-    
+    output_row = out_empty[:]
+    output_row[labels.index(docs_y[x])] = 1
 
-    training = numpy.array(training)
-    output = numpy.array(output)
+    training.append(bag)
+    output.append(output_row)
 
-    with open("data.pickle", "wb") as f:
-        pickle.dump((words, labels, training, output), f)
 
-    # model
+training = numpy.array(training)
+output = numpy.array(output)
+
+with open("data.pickle", "wb") as f:
+    pickle.dump((words, labels, training, output), f)
+
+# model
 net = tflearn.input_data(shape=[None, len(training[0])]) # create input layer
 net = tflearn.fully_connected(net, 8) # create 8 hidden layer
 net = tflearn.fully_connected(net, 8) # create 8 hidden layer
@@ -93,23 +94,70 @@ def bag_of_words(s, words):
     
     return numpy.array(bag)
 
+def speech_recog():
+    speech_to_text.speech_to_text()
+
+    try:
+        r = sr.Recognizer()
+        audio = sr.AudioFile("output.wav")
+        with audio as source:
+            audio = r.record(source)
+        
+        inp = r.recognize_google(audio)
+    except:
+        print("File .wav not found")
+
+    return inp  
+    # steps
+    # 1. kite cakap kat mic
+    # 2. google api translate jadi speech.txt
+    # 3. pass speech.txt as input
+    # 4. model cari best response
+    # 5. model pass output
+
 def chat():
-    print("Start talking with the bot! (Type quit to stop)")
+    #print("Training model ....")
+    #model()
+    #print("Finish training model ...")
+
+    # interaction using terminal / text
+    # print("Start talking with the bot! (Type quit to stop)")
+    # while True:
+    #     inp = input("You: ")
+    #     if inp.lower() == 'quit':
+    #         break
+
+    #     results = model.predict([bag_of_words(inp, words)])
+    #     result_index = numpy.argmax(results)
+    #     tag = labels[result_index]
+    #     #print(tag)
+
+    #     for tg in data["intents"]:
+    #         if tg["tag"] == tag:
+    #             responses = tg["responses"]
+        
+    #     print(random.choice(responses))
+    #     print("\n")
+
+    # INTERACTION USING SPEECH
+    
     while True:
-        inp = input("You: ")
-        if inp.lower() == 'quit':
+        user_inp = input("Talk to the bot... (Press 1 to stop)")
+        if user_inp == "1":
             break
 
-        results = model.predict([bag_of_words(inp, words)])
-        result_index = numpy.argmax(results)
-        tag = labels[result_index]
-        #print(tag)
+        inp = speech_recog()
 
-        for tg in data["intents"]:
-            if tg["tag"] == tag:
-                responses = tg["responses"]
-        
-        print(random.choice(responses))
-        print("\n")
-        
+        while True:
+            results = model.predict([bag_of_words(inp, words)])
+            result_index = numpy.argmax(results)
+            tag = labels[result_index]
+
+            for tg in data["intents"]:
+                if tg["tag"] == tag:
+                    responses = tg["responses"]
+
+            print(random.choice(responses))
+            print("\n")
+    
 chat()
