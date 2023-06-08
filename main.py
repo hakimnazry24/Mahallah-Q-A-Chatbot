@@ -110,44 +110,34 @@ def speech_recog():
     return inp  
 
 def chat():
-    user_input = input("Press 1 to interact using terminal. Press 2 to interact using speech")
-    if user_input == "1":
-        print("Start talking with the bot! (Type quit to stop)")
-        while True:
+    while True:
+        user_input = input("Press 1 to interact using terminal. Press 2 to interact using speech")
+
+        if user_input == "1":
+            print("Start talking with the bot! (Type quit to stop)")
             inp = input("You: ")
-            if inp.lower() == 'quit':
-                break
+                
 
-            results = model.predict([bag_of_words(inp, words)])
-            result_index = numpy.argmax(results)
-            tag = labels[result_index]
-
-            for tg in data["intents"]:
-                if tg["tag"] == tag:
-                    responses = tg["responses"]
-        
-            print(random.choice(responses))
-            print("\n")
-
-        if user_input == "2":
+        elif user_input == "2":
             print("Start talking with the bot.")
+            inp = speech_recog()
 
-            while True:
-                inp = speech_recog()
-                
-                results = model.predict([bag_of_words(inp, words)])
-                result_index = numpy.argmax(results)
-                tag = labels[result_index]
+        elif user_input.lower() == "quit":
+            break
 
-                for tg in data["intents"]:
-                    if tg["tag"] == tag:
-                        responses = tg["responses"]
+        else:
+            print("Enter correct input!!")
+            continue
 
-                print(random.choice(responses))
-                print("\n")
-                
-                user_inp = input("Press 1 to speak.")
-                if user_inp == "1":
-                    break
+        results = model.predict([bag_of_words(inp, words)])
+        result_index = numpy.argmax(results)
+        tag = labels[result_index]
+
+        for tg in data["intents"]:
+            if tg["tag"] == tag:
+                responses = tg["responses"]
+
+        print(random.choice(responses))
+        print("\n")
 
 chat()
