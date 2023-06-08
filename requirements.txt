@@ -1,5 +1,8 @@
 nltk==3.8.1
 numpy==1.23.5
+pyaudio==0.2.13
 tensorflow==2.12.0
 tensorflow_intel==2.12.0
 tflearn==0.5.0
+speechrecognition==3.10.0
+pyaudio==0.2.13

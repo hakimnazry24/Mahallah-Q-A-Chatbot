@@ -1,4 +1,19 @@
 {"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hello", "Hi", "Holla"],
+         "responses": ["Hello, Hi", "Hey!"],
+         "context_set": ""
+        },
+        {"tag": "salam",
+         "patterns": ["Assalamualaikum", "Assalam", "Salam"],
+         "responses": ["Waalaikumsalam brother/sister.", "Wasalam. Hope you doing well."],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["Goodbye", "See you again!", "Hope we meet again.", "Bye."],
+         "responses": ["Farewell, Assalamualaikum", "See you later soon!"],
+         "context_set": ""
+        },
         {"tag": "zubair_phoneno",
          "patterns": ["Do you know Mahallah Zubair phone number?", "May I know Zubair phone number?", "Mahallah Zubair phone no?"],
          "responses": ["Mahallah Zubair office phone number is 03-6421 5968/5695/5967"],
