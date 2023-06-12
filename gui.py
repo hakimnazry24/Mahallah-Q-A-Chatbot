@@ -1,4 +1,5 @@
 from tkinter import *
+import main
 ## from [chat coding] import [whatever that isneeded like]
 
 BG_COLOR = "#BD8E4C"
@@ -65,16 +66,17 @@ class ChatBotGUI:
       return
     
     self.msg_entry.delete(0, END)
-    msg1 = f"{sender}: {msg}\n"
+    msg1 = f"{sender}: {msg}\n\n"
     self.text_widget.configure(state=NORMAL)
     self.text_widget.insert(END, msg1)
     self.text_widget.configure(state=DISABLED)
     
-    # HOW TO RECIEVE CHATBOT ANSWER
-    # msg2 = f"{bot_name}: {msg}"
-    # self.text_widget.configure(state=NORMAL)
-    # self.text_widget.insert(END, msg1)
-    # self.text_widget.configure(state=DISABLED)
+    # calling chat from main.py
+    bot_response = main.chat(inp=msg)
+    msg2 = f"Mahallah Bot: {bot_response}\n\n"
+    self.text_widget.configure(state=NORMAL)
+    self.text_widget.insert(END, msg2)
+    self.text_widget.configure(state=DISABLED)
     
     self.text_widget.see(END)
 
