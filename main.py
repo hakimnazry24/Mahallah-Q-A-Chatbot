@@ -108,37 +108,16 @@ def speech_recog():
     return inp  
 
 # main function
-def chat():
-    # get input from text or speech
-    while True:
-        print("Press '1' to interact using terminal. Press '2' to interact using speech. Type 'quit' to quit chatbot")
-        user_input = input("> ")
+def chat(inp):
+    # use input to generate output 
+    results = model.predict([bag_of_words(inp, words)])
+    result_index = numpy.argmax(results)
+    tag = labels[result_index]
 
-        if user_input == "1":
-            print("Start talking with the bot! (Type quit to stop)")
-            inp = input("You: ")
-                
-        elif user_input == "2":
-            print("Start talking with the bot.")
-            inp = speech_recog()
+    for tg in data["intents"]:
+        if tg["tag"] == tag:
+            responses = tg["responses"]
 
-        elif user_input.lower() == "quit":
-            break
+    response = random.choice(responses)
 
-        else:
-            print("Enter correct input!!")
-            continue
-
-        # use input to generate output 
-        results = model.predict([bag_of_words(inp, words)])
-        result_index = numpy.argmax(results)
-        tag = labels[result_index]
-
-        for tg in data["intents"]:
-            if tg["tag"] == tag:
-                responses = tg["responses"]
-
-        print(random.choice(responses))
-        print("\n")
-
-chat()
+    return response
