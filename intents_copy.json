@@ -10,8 +10,13 @@
          "context_set": ""
         },
         {"tag": "goodbye",
-         "patterns": ["Goodbye", "See you again!", "Hope we meet again.", "Bye."],
-         "responses": ["Farewell, Assalamualaikum", "See you later soon!"],
+         "patterns": ["Goodbye", "See you again!", "Hope we meet again.", "Bye"],
+         "responses": ["Farewell, Bye, see you again!", "See you later soon!"],
+         "context_set": ""
+        },
+        {"tag": "thank you",
+         "patterns": ["Thank you", "Thank you very much", "Thanks"],
+         "responses": ["You are welcome."],
          "context_set": ""
         },
         {"tag": "zubair_phoneno",
