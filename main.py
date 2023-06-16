@@ -34,6 +34,12 @@ class ChatBotGUI:
                             padx=5, pady=5)
     self.text_widget.place(relheight=0.745, relwidth=1, rely=0.08)
     self.text_widget.configure(cursor="arrow", state=DISABLED)
+
+    #disclaimer message
+    disclaimer_msg = "Disclaimer: This chatbot does not support female Mahallah Q&A\n"
+    self.text_widget.configure(state=NORMAL)
+    self.text_widget.insert(END, disclaimer_msg)
+    self.text_widget.configure(state=DISABLED)
     
     # Scroll Bar
     scrollbar = Scrollbar(self.text_widget)
@@ -56,7 +62,7 @@ class ChatBotGUI:
     send_button = Button(bottom_label, text="Send", font=FONT_BOLD,
                          width=20, bg=BG_WHITE, command=lambda: self._on_enter_pressed(None))
     send_button.place(relx=0.77, rely=0.008, relheight=0.06, relwidth=0.22)
-    
+
   def _on_enter_pressed(self, event):
     msg = self.msg_entry.get()
     self._insert_message(msg, "You")
